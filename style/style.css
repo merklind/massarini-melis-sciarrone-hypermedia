@@ -1,0 +1,15 @@
+html, body, .container-fluid{ height: 100%; margin: 0; padding: 0; }
+
+.description {
+    text-align: center;
+    margin-top: 110px;
+    margin-bottom: 110px;
+}
+
+footer {
+    background-color: rgb(56, 61,66);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    }
