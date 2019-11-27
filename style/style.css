@@ -1,4 +1,4 @@
-html, body, .container-fluid{ height: 100%; margin: 0; padding: 0; }
+html, body, .container-fluid{ height: 100%; }
 
 .description {
     text-align: center;
@@ -6,10 +6,14 @@ html, body, .container-fluid{ height: 100%; margin: 0; padding: 0; }
     margin-bottom: 110px;
 }
 
-footer {
-    background-color: rgb(56, 61,66);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    }
+.events-image {
+    width: 700px;
+    
+}
+
+.info_event {
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
