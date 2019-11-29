@@ -17,3 +17,35 @@ html, body, .container-fluid{ height: 100%; }
     align-items: center;
 }
 
+.image-background {
+    background-image: url("/Users/marcomelis/Progetto Hypermedia/massarini-melis-sciarrone-hypermedia/images/home_page_pic.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.discover_us {
+position: absolute;
+width: 150px;
+margin-left: -75px;
+left: 50%;
+top: 200px;
+display: inline-block;
+padding: 15px;
+color: black;
+border: 2px solid;
+border-radius: 5px;
+text-align: center;
+outline: none;
+text-decoration: none;
+transition: background-color 0.2s ease-out, color 0.2s ease-out;
+background-color: #89bded;
+font-weight: 1600;
+
+}
+
+.discover_us:hover {
+    background-color: red;
+}
+
