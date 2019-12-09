@@ -12,8 +12,6 @@ schemes:
 paths:
   /index:
     get:
-      tags:
-      - "main"
       summary: "The main page"
       operationId: "indexGET"
       produces:
@@ -25,11 +23,9 @@ paths:
           description: "successful operation"
         "400":
           description: "Invalid status value"
-      x-swagger-router-controller: "Main"
+      x-swagger-router-controller: "Default"
   /one_event:
     get:
-      tags:
-      - "event"
       summary: "An event page"
       operationId: "one_eventGET"
       produces:
@@ -41,11 +37,9 @@ paths:
           description: "successful operation"
         "400":
           description: "Invalid status value"
-      x-swagger-router-controller: "Event"
+      x-swagger-router-controller: "Default"
   /festival_presentation:
     get:
-      tags:
-      - "festival"
       summary: "The summary of the festival"
       operationId: "festival_presentationGET"
       produces:
@@ -57,5 +51,5 @@ paths:
           description: "successful operation"
         "400":
           description: "Invalid status value"
-      x-swagger-router-controller: "Festival"
+      x-swagger-router-controller: "Default"
 definitions: {}
