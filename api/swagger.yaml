@@ -1,0 +1,55 @@
+---
+swagger: "2.0"
+info:
+  description: ""
+  version: "1.0.0"
+  title: "Swagger MBM Events"
+host: "mbmfestival.herokuapp.com"
+basePath: "/"
+schemes:
+- "https"
+- "http"
+paths:
+  /index:
+    get:
+      summary: "The main page"
+      operationId: "indexGET"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid status value"
+      x-swagger-router-controller: "Default"
+  /one_event:
+    get:
+      summary: "An event page"
+      operationId: "one_eventGET"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid status value"
+      x-swagger-router-controller: "Default"
+  /festival_presentation:
+    get:
+      summary: "The summary of the festival"
+      operationId: "festival_presentationGET"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+        "400":
+          description: "Invalid status value"
+      x-swagger-router-controller: "Default"
+definitions: {}
