@@ -18,7 +18,7 @@ html, body, .container-fluid{ height: 100%; }
 }
 
 .image-background {
-    background-image: url("/Users/marcomelis/Progetto Hypermedia/massarini-melis-sciarrone-hypermedia/images/home_page_pic.jpg");
+    background-image: url("../images/home_page_pic.jpg");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -48,9 +48,6 @@ html, body, .container-fluid{ height: 100%; }
 #footer a {
     color: white;
 }
-
-
-
 
 .discover_us:hover {
     filter: brightness(85%);
