@@ -1,55 +1,214 @@
 ---
 swagger: "2.0"
 info:
-  description: ""
+  description: "This is a festival page website."
   version: "1.0.0"
-  title: "Swagger MBM Events"
+  title: "MBM Festival"
 host: "mbmfestival.herokuapp.com"
 basePath: "/"
+tags:
+- name: "artistic events"
+  description: "Everything about artistic events"
+- name: "seminars"
+  description: "Everything about seminars"
+- name: "performers"
+  description: "Everything about performers"
 schemes:
 - "https"
 - "http"
 paths:
-  /index:
+  /artisticEvents:
     get:
-      summary: "The main page"
-      operationId: "indexGET"
+      tags:
+      - "artistic events"
+      summary: "Finds all the artistic events"
+      operationId: "getArtisticEvents"
       produces:
-      - "application/xml"
       - "application/json"
       parameters: []
       responses:
         "200":
           description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ArtisticEvent"
         "400":
-          description: "Invalid status value"
-      x-swagger-router-controller: "Default"
-  /one_event:
+          description: "Error"
+      deprecated: false
+      x-swagger-router-controller: "ArtisticEvents"
+  /artisticEvents/{artisticEventId}:
     get:
-      summary: "An event page"
-      operationId: "one_eventGET"
+      tags:
+      - "artistic events"
+      summary: "Find event by ID"
+      description: "Returns a single event"
+      operationId: "getEventById"
       produces:
-      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "artisticEventId"
+        in: "path"
+        description: "ID of the event to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ArtisticEvent"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "ArtisticEvents"
+  /performers:
+    get:
+      tags:
+      - "performers"
+      summary: "Finds all performers"
+      operationId: "getPerformers"
+      produces:
       - "application/json"
       parameters: []
       responses:
         "200":
           description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Performer"
         "400":
-          description: "Invalid status value"
-      x-swagger-router-controller: "Default"
-  /festival_presentation:
+          description: "Error"
+      deprecated: false
+      x-swagger-router-controller: "Performers"
+  /performers/{performerId}:
     get:
-      summary: "The summary of the festival"
-      operationId: "festival_presentationGET"
+      tags:
+      - "performers"
+      summary: "Find performer by ID"
+      description: "Returns a single performer"
+      operationId: "getPerformerById"
       produces:
-      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "performerId"
+        in: "path"
+        description: "ID of performer to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Performer"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Performer not found"
+      x-swagger-router-controller: "Performers"
+  /seminars:
+    get:
+      tags:
+      - "seminars"
+      summary: "Finds all the seminars"
+      operationId: "getSeminars"
+      produces:
       - "application/json"
       parameters: []
       responses:
         "200":
           description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Seminar"
         "400":
-          description: "Invalid status value"
-      x-swagger-router-controller: "Default"
-definitions: {}
+          description: "Error"
+      deprecated: false
+      x-swagger-router-controller: "Seminars"
+  /seminars/{seminarId}:
+    get:
+      tags:
+      - "seminars"
+      summary: "Find seminar by ID"
+      description: "Returns a single seminar"
+      operationId: "getSeminarById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "seminarId"
+        in: "path"
+        description: "ID of seminar to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Seminar"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Seminar not found"
+      x-swagger-router-controller: "Seminars"
+definitions:
+  ArtisticEvent:
+    type: "object"
+    properties:
+      artisticEventId:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        format: "string"
+      description:
+        type: "string"
+        format: "string"
+      day:
+        type: "string"
+        format: "date"
+    example:
+      name: "name"
+      description: "description"
+      artisticEventId: 0
+      day: "2000-01-23"
+  Seminar:
+    type: "object"
+    properties:
+      seminarId:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        format: "string"
+      description:
+        type: "string"
+        format: "string"
+      day:
+        type: "string"
+        format: "date"
+    example:
+      seminarId: 0
+      name: "name"
+      description: "description"
+      day: "2000-01-23"
+  Performer:
+    type: "object"
+    properties:
+      performerId:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        format: "string"
+      description:
+        type: "string"
+        format: "string"
+    example:
+      name: "name"
+      description: "description"
+      performerId: 0
