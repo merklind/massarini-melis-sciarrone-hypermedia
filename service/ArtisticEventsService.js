@@ -1,6 +1,5 @@
 'use strict';
 
-
 /**
  * Finds all the artistic events
  *

@@ -172,9 +172,9 @@ definitions:
         type: "string"
         format: "date"
     example:
+      artisticEventId: 0
       name: "name"
       description: "description"
-      artisticEventId: 0
       day: "2000-01-23"
   Seminar:
     type: "object"
@@ -209,6 +209,6 @@ definitions:
         type: "string"
         format: "string"
     example:
+      performerId: 0
       name: "name"
       description: "description"
-      performerId: 0

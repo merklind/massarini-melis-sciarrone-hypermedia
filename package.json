@@ -21,9 +21,11 @@
   "private": true,
   "dependencies": {
     "connect": "^3.2.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "js-yaml": "^3.3.0",
-    "pg": "^7.14.0",
+    "knex": "^0.20.4",
+    "pg": "^7.15.1",
     "swagger-tools": "^0.10.4"
   }
 }
