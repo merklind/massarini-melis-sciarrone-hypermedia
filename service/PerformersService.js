@@ -1,5 +1,15 @@
 'use strict';
+var db = require('../utils/database');
+var respondWithCode= require('../utils/writer').respondWithCode;
 
+/**
+ * Finds all performers
+ *
+ * returns List
+ **/
+exports.getPerformers = function() {
+  return db('performer').select();
+}
 
 /**
  * Find performer by ID
@@ -9,44 +19,16 @@
  * returns Performer
  **/
 exports.getPerformerById = function(performerId) {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = {
-  "name" : "name",
-  "description" : "description",
-  "performerId" : 0
-};
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
+  if(!performerId)
+    return respondWithCode(400, {message: 'invalidId'})
+
+  return db('performer').where({'performer.id': performerId})
+  .then(function(performers){
+    if(performers.length == 1){
+      return performers[0];
     }
-  });
-}
-
-
-/**
- * Finds all performers
- *
- * returns List
- **/
-exports.getPerformers = function() {
-  return new Promise(function(resolve, reject) {
-    var examples = {};
-    examples['application/json'] = [ {
-  "name" : "name",
-  "description" : "description",
-  "performerId" : 0
-}, {
-  "name" : "name",
-  "description" : "description",
-  "performerId" : 0
-} ];
-    if (Object.keys(examples).length > 0) {
-      resolve(examples[Object.keys(examples)[0]]);
-    } else {
-      resolve();
+    else {
+      return respondWithCode(404,{message: 'performer not found'})
     }
-  });
+  })
 }
-

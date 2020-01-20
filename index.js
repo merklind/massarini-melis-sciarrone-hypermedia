@@ -1,5 +1,5 @@
 'use strict';
-
+require('dotenv').config();
 var fs = require('fs'),
     path = require('path'),
     http = require('http');
@@ -9,6 +9,7 @@ var swaggerTools = require('swagger-tools');
 var jsyaml = require('js-yaml');
 var PORT = process.env.PORT || 8080;
 var express = require('express');
+require('./utils/database');
 
 // swaggerRouter configuration
 var options = {
