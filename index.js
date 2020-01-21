@@ -9,6 +9,7 @@ var swaggerTools = require('swagger-tools');
 var jsyaml = require('js-yaml');
 var PORT = process.env.PORT || 8080;
 var express = require('express');
+var cors = require('cors');
 require('./utils/database');
 
 // swaggerRouter configuration
@@ -17,7 +18,7 @@ var options = {
   controllers: path.join(__dirname, './controllers'),
   useStubs: process.env.NODE_ENV === 'development' // Conditionally turn on stubs (mock mode)
 };
-
+app.use(cors());
 app.use('/', express.static(path.join(__dirname,'./public')))
 
 // The Swagger document (require it, build it programmatically, fetch it from a URL, ...)
