@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    console.log('Prova')
     $.ajax({
         method: 'GET',
         url: 'http://mbmfestival.herokuapp.com/artisticEvents',
@@ -20,7 +21,7 @@ $(document).ready(function() {
                         <br>
                         Description: <span class='description-event'>${event.description.substring(0, 200)}...</span>
                         <br>
-                        <a class="btn btn-primary" href="one_event.html/?=${event.id}" role="button">Go to event</a>
+                        <a class="btn btn-primary" href="one_event.html?=${event.id}" role="button">Go to event</a>
                     </div>
                 </div>`;
             $('#wrapper').prepend(template)
