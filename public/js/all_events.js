@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log('Prova')
     $.ajax({
         method: 'GET',
         url: 'http://mbmfestival.herokuapp.com/artisticEvents',
