@@ -75,3 +75,9 @@ html, body, .container-fluid{ height: 100%; }
     margin-bottom: 30px;
 }
 
+.information-textarea {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto
+}
+
