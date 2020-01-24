@@ -6,10 +6,12 @@ html, body, .container-fluid{ height: 100%; }
     margin-bottom: 80px;
 }
 
+/**
 .events-image {
     width: 700px;
     
 }
+**/
 
 .info_event {
     height: 70px;
@@ -53,7 +55,7 @@ html, body, .container-fluid{ height: 100%; }
     filter: brightness(85%);
 }
 
-.one_event {
+.one_event, .one_performer {
     margin-top: 30px;
     margin-right: 15px;
     margin-left: 15px;
@@ -64,7 +66,7 @@ html, body, .container-fluid{ height: 100%; }
     border-radius: 10px;
 }
 
-.image-event {
+.image-event, .image-performer {
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 4px;
