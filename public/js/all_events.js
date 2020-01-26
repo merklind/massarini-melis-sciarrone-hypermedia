@@ -4,7 +4,6 @@ $(document).ready(function() {
         url: 'http://mbmfestival.herokuapp.com/artisticEvents'
     })
     .then(function(data) {
-        console.log(data)
         data.reverse().forEach((event) => {
             var template = `
                 <div class='row one_event' id='${event.id}'>
@@ -23,7 +22,7 @@ $(document).ready(function() {
                         <a class="btn btn-primary" href="one_event.html?id=${event.id}" role="button">Go to event</a>
                     </div>
                 </div>`;
-            $('#wrapper').prepend(template)
+            $('#wrapper').append(template)
         })
     })
 })

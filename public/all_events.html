@@ -16,6 +16,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style/style.css" type="text/css">
     <script src="js/all_events.js"></script>
+    <script src="js/filter_events.js"></script>
 </head>
 
 <body>
@@ -53,11 +54,21 @@
 
         </div>
     </nav>
-    <!--                TODO             -->
-    <div id='filter-events'>
-    </div>
-
-    <div id='wrapper' class='container-fluid'>
+    <div class='container-fluid'>
+        <div class="row align-items-center">
+            <div class="col-sm">
+                <form id='genre-choice'>
+                    <input type="radio" name="genre" value="Theatre" onclick='filter()'>Theatre<br>
+                    <input type="radio" name="genre" value="Music" onclick='filter()'>Music<br>
+                    <input type="radio" name="genre" value="Opera" onclick='filter()'>Opera<br>
+                    <input type="radio" name="genre" value="All" onclick='filter()'>All<br>
+                </form>
+            </div>
+            <div class="col-sm">
+                Calendar
+            </div>
+        </div>
+        <div id="wrapper"></div>
         <div id="footer" class="row bg-dark py-3 mt-3">
             <div class="col-sm-4 my-auto text-white">
                 <a href="#">Logo Home</a>
