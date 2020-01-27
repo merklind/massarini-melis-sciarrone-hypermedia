@@ -13,13 +13,16 @@ $(document).ready(function() {
                     <div class='col-sm-9 abstract-information'>
                         Name: <span class='name-event'>${event.name}</span>
                         <br>
-                        Date: <span class='date-event'>${event.date}</span>
+                        Date: <span class='date-event'>${event.date.substring(0, 10)}</span>
                         <br>
                         Genre: <span class='genre-event'>${event.genre}</span>
                         <br>
                         Description: <span class='description-event'>${event.description.substring(0, 200)}...</span>
                         <br>
-                        <a class="btn btn-primary" href="one_event.html?id=${event.id}" role="button">Go to event</a>
+                        <div id='button-holder'>
+                        <a id='go-to-event-button' class="btn btn-primary" href="one_event.html?id=${event.id}" role="button">Go to event</a>
+                        </div>
+                        
                     </div>
                 </div>`;
             $('#wrapper').append(template)

@@ -111,3 +111,8 @@ form > input {
     margin-right: 7px;
 }
 
+#button-holder {
+    display: block;
+    margin-top: 3px;
+}
+
