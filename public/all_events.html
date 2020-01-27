@@ -21,7 +21,9 @@
 
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.html">Home</a>
+        <a class="navbar-brand" href="index.html">
+            <img src="../images/mbm.png" style="width: 50px">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -35,9 +37,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="performers.html">Performers</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="calendar.html">Calendar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact_us.html">Contact us</a>
@@ -78,17 +77,21 @@
                 </form>
                 <form id='calendar'>
                     <label>Select a day</label>
-                    <input id="selected_day" type="date" name="date" min="2020-02-01" max="2020-02-29" formaction="filter_by_date">
-                    <button id="filter_button_date" form="calendar" type="button" value="Filter!" onclick="filter_by_date()">Filter</button>
+                    <input id="selected_day" type="date" name="date" min="2020-02-01" max="2020-02-29"
+                        formaction="filter_by_date">
+                    <button id="filter_button_date" form="calendar" type="button" value="Filter!"
+                        onclick="filter_by_date()">Filter</button>
                 </form>
             </div>
             <div class="col-sm">
                 <div id="wrapper"></div>
             </div>
         </div>
-        <div id="footer" class="row bg-dark py-3 mt-3">
+        <div id="footer" class="row bg-dark py-3 mt-2">
             <div class="col-sm-4 my-auto text-white">
-                <a href="#">Logo Home</a>
+                <a href="index.html">
+                    <img src="../images/mbm.png" style="width:50px">
+                </a>
             </div>
             <div class="col-sm-4 my-auto text-white">
                 Copyright Marco Melis - Mattia Massarini - Bruno Sciarrone
@@ -108,7 +111,6 @@
 
             </div>
         </div>
-
     </div>
 </body>
 

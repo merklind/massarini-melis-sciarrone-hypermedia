@@ -1,17 +1,15 @@
 html, body, .container-fluid{ height: 100%; }
 
+.navbar {
+    font-size: 1.2em;
+    color: white;
+}
+
 .description {
     text-align: center;
     margin-top: 80px;
     margin-bottom: 80px;
 }
-
-/**
-.events-image {
-    width: 700px;
-    
-}
-**/
 
 .info_event {
     height: 70px;
@@ -88,7 +86,7 @@ html, body, .container-fluid{ height: 100%; }
     height: 230px;
     margin-top: 1em;
     padding: 5%;
-    background: rgb(163, 156, 155);
+    background: #D0CCD0;
     border-radius: 8px;
     box-shadow: 2px 6px 20px 2px rgba(10,10,120,0.15);
 }
@@ -98,13 +96,14 @@ html, body, .container-fluid{ height: 100%; }
     height: 120px;
     margin-top: 1em;
     padding: 5%;
-    background: rgb(163, 156, 155);
+    background: #D0CCD0;
     border-radius: 8px;
     box-shadow: 2px 6px 20px 2px rgba(10,10,120,0.15);
 }
 
 #filter_button_date {
-    background-color: aqua;
+    background-color: #605856;
+    color: white
 
 }
 
