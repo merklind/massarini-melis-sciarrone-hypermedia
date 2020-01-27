@@ -23,3 +23,14 @@ module.exports.getPerformers = function getPerformers (req, res, next) {
       utils.writeJson(res, response);
     });
 };
+
+module.exports.getLinkedEventsByPerformer = function getLinkedEventsByPerformer (req, res, next) {
+  var performerId = req.swagger.params['performerId'].value;
+  Performers.getLinkedEventsByPerformer(performerId)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    }); 
+};

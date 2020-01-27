@@ -63,6 +63,91 @@ paths:
         "404":
           description: "Event not found"
       x-swagger-router-controller: "ArtisticEvents"
+  /artisticEvents/{artisticEventId}/sameDayEvents:
+    get:
+      tags:
+      - "artistic events"
+      summary: "Find events on the same day"
+      description: "Returns zero or multiple events"
+      operationId: "getSameDayEvents"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "artisticEventId"
+        in: "path"
+        description: "ID of the event"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ArtisticEvent"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "ArtisticEvents"
+  /artisticEvents/{artisticEventId}/linkedPerformers:
+    get:
+      tags:
+      - "artistic events"
+      summary: "Find performers who partecipates in said event"
+      description: "Returns one or multiple performers"
+      operationId: "getLinkedPerformersByEvent"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "artisticEventId"
+        in: "path"
+        description: "ID of the event"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Performer"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "ArtisticEvents"
+  /artisticEvents/{artisticEventId}/linkedSeminars:
+    get:
+      tags:
+      - "artistic events"
+      summary: "Find linked seminars by artistic eventID"
+      description: "Returns zero or multiple correlated seminars given an artistic event"
+      operationId: "getLinkedSeminarsByEvent"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "artisticEventId"
+        in: "path"
+        description: "ID of the event"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Seminar"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "ArtisticEvents"
+
   /performers:
     get:
       tags:
@@ -109,6 +194,35 @@ paths:
         "404":
           description: "Performer not found"
       x-swagger-router-controller: "Performers"
+  /performers/{performerId}/linkedEvents:
+    get:
+      tags:
+      - "performers"
+      summary: "Find linked events by performer ID"
+      description: "Returns zero or multiple correlated events given a performer id"
+      operationId: "getLinkedEventsByPerformer"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "performerId"
+        in: "path"
+        description: "ID of the event"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Seminar"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "Seminars"
+
   /seminars:
     get:
       tags:
@@ -155,6 +269,35 @@ paths:
         "404":
           description: "Seminar not found"
       x-swagger-router-controller: "Seminars"
+  /seminars/{seminarId}/linkedEvents:
+    get:
+      tags:
+      - "seminars"
+      summary: "Find linked events by seminar ID"
+      description: "Returns zero or multiple correlated events given a seminar id"
+      operationId: "getLinkedEventsBySeminar"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "seminarId"
+        in: "path"
+        description: "ID of the seminar"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ArtisticEvent"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "Seminars"
+
 definitions:
   ArtisticEvent:
     type: "object"

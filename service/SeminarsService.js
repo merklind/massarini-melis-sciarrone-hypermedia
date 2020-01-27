@@ -33,3 +33,12 @@ exports.getSeminarById = function(seminarId) {
   })
 }
 
+/**
+ * Finds all the events correlated to one seminar
+ *
+ * returns List
+ **/
+exports.getLinkedEventsBySeminar = function(seminarId) {
+  
+}
+

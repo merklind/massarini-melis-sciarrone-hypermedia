@@ -32,3 +32,12 @@ exports.getPerformerById = function(performerId) {
     }
   })
 }
+
+/**
+ * Finds all events correlated to a performer
+ *
+ * returns List
+ **/
+exports.getLinkedEventsByPerformer = function(performerId) {
+  
+}

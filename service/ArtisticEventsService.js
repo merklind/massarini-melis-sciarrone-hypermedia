@@ -33,3 +33,51 @@ exports.getEventById = function(artisticEventId) {
   })
 }
 
+/**
+ * Finds all the artistic events of the same day
+ *
+ * returns List
+ **/
+exports.getSameDayEvents = function(artisticEventId) {
+  if(!artisticEventId)
+    return respondWithCode(400, {message: 'invalidId'})
+
+  return db('artisticEvent').where({'artisticEvent.id': artisticEventId})
+  .then(function(artisticEvents){
+    if(artisticEvents.length == 1){
+      var eventDate = artisticEvents[0].date;
+      var eventId = artisticEvents[0].id;
+      return db('artisticEvent')
+        .where({'artisticEvent.date': eventDate})
+        .whereNot({'artisticEvent.id': eventId})
+
+    } else {
+      throw new Error('artisticEvent not found')
+    }
+  })
+  .then(function(artisticEvents) {
+    return artisticEvents;
+  })
+  .catch(function (err){
+    return respondWithCode(404,{message: err.message});
+  })
+}
+
+/**
+ * Finds all the seminars correlated to one event
+ *
+ * returns List
+ **/
+exports.getLinkedSeminarsByEvent = function(artisticEventId) {
+  
+}
+
+/**
+ * Finds all the performers correlated to one event
+ *
+ * returns List
+ **/
+exports.getLinkedPerformersByEvent = function(artisticEventId) {
+
+}
+
