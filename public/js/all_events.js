@@ -8,7 +8,7 @@ $(document).ready(function() {
             var template = `
                 <div class='row one_event' id='${event.id}'>
                     <div class='col-sm-3'>
-                        <img src='images/${event.id}.jpg' alt='ciao' class='image-event img-fluid'>
+                        <img src='images/${event.id}.jpg' alt='${event.name}' class='image-event img-fluid'>
                     </div>
                     <div class='col-sm-9 abstract-information'>
                         Name: <span class='name-event'>${event.name}</span>
@@ -25,6 +25,5 @@ $(document).ready(function() {
             $('#wrapper').append(template)
         })
     })
+    
 })
-
-
