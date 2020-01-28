@@ -22,7 +22,9 @@ exports.getPerformers = function() {
  **/
 exports.getPerformerById = function(performerId) {
   if(!performerId)
-    return respondWithCode(400, {message: 'invalidId'})
+    return new Promise(function (resolve,reject) {
+      resolve(respondWithCode(400, {message: 'Invalid id'}));
+    });
 
   return db('performer').where({'performer.id': performerId})
   .then(function(performers){
@@ -42,7 +44,9 @@ exports.getPerformerById = function(performerId) {
  **/
 exports.getLinkedEventsByPerformer = function(performerId) {
   if(!performerId)
-    return respondWithCode(400, {message: 'invalidId'})
+    return new Promise(function (resolve,reject) {
+      resolve(respondWithCode(400, {message: 'Invalid id'}));
+    });
 
   return db('eventPerformer').where({'eventPerformer.performerId': performerId})
   .join('artisticEvent', 'artisticEvent.id', '=', 'eventPerformer.eventId')

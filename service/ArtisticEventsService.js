@@ -22,7 +22,9 @@ exports.getArtisticEvents = function() {
  **/
 exports.getEventById = function(artisticEventId) {
   if(!artisticEventId)
-    return respondWithCode(400, {message: 'invalidId'})
+    return new Promise(function (resolve,reject) {
+      resolve(respondWithCode(400, {message: 'invalidId'}));
+    });
 
   return db('artisticEvent').where({'artisticEvent.id': artisticEventId})
   .then(function(artisticEvents){
@@ -42,7 +44,9 @@ exports.getEventById = function(artisticEventId) {
  **/
 exports.getSameDayEvents = function(artisticEventId) {
   if(!artisticEventId)
-    return respondWithCode(400, {message: 'invalidId'})
+    return new Promise(function (resolve,reject) {
+      resolve(respondWithCode(400, {message: 'InvalidId'}));
+    });
 
   return db('artisticEvent').where({'artisticEvent.id': artisticEventId})
   .then(function(artisticEvents){
@@ -72,7 +76,9 @@ exports.getSameDayEvents = function(artisticEventId) {
  **/
 exports.getLinkedSeminarsByEvent = function(artisticEventId) {
   if(!artisticEventId)
-    return respondWithCode(400, {message: 'invalidId'})
+    return new Promise(function (resolve,reject) {
+      resolve(respondWithCode(400, {message: 'InvalidId'}));
+    });
 
   return db('eventSeminar').where({'eventSeminar.eventId': artisticEventId})
   .join('seminar', 'seminar.id', '=', 'eventSeminar.seminarId')
@@ -87,7 +93,9 @@ exports.getLinkedSeminarsByEvent = function(artisticEventId) {
  **/
 exports.getLinkedPerformersByEvent = function(artisticEventId) {
   if(!artisticEventId)
-    return respondWithCode(400, {message: 'invalidId'})
+    return new Promise(function (resolve,reject) {
+      resolve(respondWithCode(400, {message: 'InvalidId'}));
+    });
 
   return db('eventPerformer').where({'eventPerformer.eventId': artisticEventId})
   .join('performer', 'performer.id', '=', 'eventPerformer.performerId')

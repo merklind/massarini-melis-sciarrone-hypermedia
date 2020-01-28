@@ -10,6 +10,8 @@ var jsyaml = require('js-yaml');
 var PORT = process.env.PORT || 8080;
 var express = require('express');
 var cors = require('cors');
+var cookieSession = require('cookie-session');
+var bodyParser = require('body-parser');
 require('./utils/database');
 
 // swaggerRouter configuration
@@ -19,6 +21,12 @@ var options = {
   useStubs: process.env.NODE_ENV === 'development' // Conditionally turn on stubs (mock mode)
 };
 app.use(cors());
+app.use(bodyParser.json());
+app.use(cookieSession({
+  name: 'cookie',
+  secret: process.env.COOKIE_PSW,
+  maxAge: 1000 * 60 * 60 * 24,
+}));
 app.use('/', express.static(path.join(__dirname,'./public')))
 
 // The Swagger document (require it, build it programmatically, fetch it from a URL, ...)

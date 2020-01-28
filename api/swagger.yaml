@@ -4,7 +4,7 @@ info:
   description: "This is a festival page website."
   version: "1.0.0"
   title: "MBM Festival"
-host: "mbmfestival.herokuapp.com"
+host: "localhost:5000"
 basePath: "/"
 tags:
 - name: "artistic events"
@@ -14,7 +14,6 @@ tags:
 - name: "performers"
   description: "Everything about performers"
 schemes:
-- "https"
 - "http"
 paths:
   /artisticEvents:
@@ -316,7 +315,7 @@ paths:
           description: "Not authorized"
       x-swagger-router-controller: "Users"
   /user/login:
-    get:
+    post:
       tags:
       - "user"
       summary: "Logs user into the system"
@@ -325,52 +324,45 @@ paths:
       produces:
       - "application/json"
       parameters:
-      - name: "username"
-        in: "query"
-        description: "The user name for login"
+      - name: "body"
+        in: "body"
+        description: "User information"
         required: true
-        type: "string"
-      - name: "password"
-        in: "query"
-        description: "The password for login in clear text"
-        required: true
-        type: "string"
+        schema: 
+          $ref: "#/definitions/UserInfo"
       responses:
         200:
           description: "successful operation"
           schema:
-            type: "string"
-          headers:
-            X-Rate-Limit:
-              type: "integer"
-              format: "int32"
-              description: "calls per hour allowed by the user"
-            X-Expires-After:
-              type: "string"
-              format: "date-time"
-              description: "date in UTC when token expires"
+            $ref: "#/definitions/User"
         400:
+          description: "Username and/or password missing"
+        401:
           description: "Invalid username/password supplied"
       x-swagger-router-controller: "Users"
   /user/register:
     post:
       tags:
       - "user"
-      summary: "Create user"
-      description: "This can only be done by the logged in user."
-      operationId: "createUser"
+      summary: "Registers user into the system"
+      description: ""
+      operationId: "registerUser"
       produces:
       - "application/json"
       parameters:
-      - in: "body"
-        name: "body"
-        description: "Created user object"
+      - name: "body"
+        in: "body"
+        description: "User information"
         required: true
-        schema:
-          $ref: "#/definitions/User"
+        schema: 
+          $ref: "#/definitions/UserInfo"
       responses:
-        default:
+        200:
           description: "successful operation"
+          schema:
+            $ref: "#/definitions/User"
+        400:
+          description: "Username already in use or missing username or password"
       x-swagger-router-controller: "Users"
 
 definitions:
@@ -438,7 +430,7 @@ definitions:
       id: 0
       name: "name"
       bio: "bio"
-  User:
+  UserInfo:
     type: "object"
     properties:
       username:
@@ -450,4 +442,11 @@ definitions:
     example:
       username: "Chico"
       password: "consuelo123"
+
+  User:
+    type: "object"
+    properties:
+      username:
+        type: "string"
+        format: "string"
 

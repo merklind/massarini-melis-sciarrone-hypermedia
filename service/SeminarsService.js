@@ -21,8 +21,12 @@ exports.getSeminars = function() {
  * returns Seminar
  **/
 exports.getSeminarById = function(seminarId) {
-  if(!seminarId)
-    return respondWithCode(400, {message: 'invalidId'})
+  if(!seminarId){
+    return new Promise(function (resolve,reject) {
+      resolve(respondWithCode(400, {message: 'Invalid id'}));
+    });
+  }
+    
 
   return db('seminar').where({'seminar.id': seminarId})
   .then(function(seminars){
@@ -41,8 +45,12 @@ exports.getSeminarById = function(seminarId) {
  * returns List
  **/
 exports.getLinkedEventsBySeminar = function(seminarId) {
-  if(!seminarId)
-    return respondWithCode(400, {message: 'invalidId'})
+  if(!seminarId){
+    return new Promise(function (resolve,reject) {
+      resolve(respondWithCode(400, {message: 'Invalid id'}));
+    });
+  }
+    
 
   return db('eventSeminar').where({'eventSeminar.seminarId': seminarId})
   .join('artisticEvent', 'artisticEvent.id', '=', 'eventSeminar.eventId')
