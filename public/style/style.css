@@ -1,4 +1,7 @@
-html, body, .container-fluid{ height: 100%; }
+html, body, .container-fluid{ 
+    height: 100%;
+    background-color: #EEEEEE;
+}
 
 .navbar {
     font-size: 1.2em;
@@ -60,9 +63,10 @@ html, body, .container-fluid{ height: 100%; }
     margin-left: 15px;
     padding: 5px 5px 5px 5px;
     border-style: solid;
-    border-width: 1px;
-    border-color: gray;
+    border-width: 0px;
     border-radius: 10px;
+    background-color: #cecbcf;
+    color:black;
 }
 
 @media (max-width: 768px) { 
@@ -94,6 +98,8 @@ html, body, .container-fluid{ height: 100%; }
 }
 
 .image-event, .image-performer {
+    height: 161.28;
+    width: 243.66;
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 4px;
@@ -114,7 +120,7 @@ html, body, .container-fluid{ height: 100%; }
     width: 100%;
     margin-top: 1em;
     padding: 5%;
-    background: #D0CCD0;
+    background: #cecbcf;
     border-radius: 8px;
     box-shadow: 2px 6px 20px 2px rgba(10,10,120,0.15);
 }
@@ -123,13 +129,12 @@ html, body, .container-fluid{ height: 100%; }
     width: 100%;
     margin-top: 1em;
     padding: 5%;
-    background: #D0CCD0;
+    background: #cecbcf;
     border-radius: 8px;
-    box-shadow: 2px 6px 20px 2px rgba(10,10,120,0.15);
 }
 
 #filter_button_date {
-    background-color: #605856;
+    background-color: #393D42;
     color: white;
     width: 100%;
     margin-top: 5px;
@@ -143,11 +148,30 @@ form > input {
     position: absolute;
     bottom: 0;
     width: 97%;
+    height: 40px;
+    background-color: #393d42;
+    border-color: #393d42;
+    color: #dcdcdc;
+    
 }
 
 #go-to-performer-button {
     position: absolute;
     bottom: 0;
     width: 97%;
+    height: 40px;
+    background-color: #393d42;
+    border-color: #393d42;
+    color: #dcdcdc;
+}
+
+#linked-seminar-box, #same-day-event {
+    text-align: center;
+    font-weight: bold;
+    border: solid;
+    border-radius: 4px;
+    border-width: 1.5px;
+    background-color: #D1F5FF;
+    
 }
 

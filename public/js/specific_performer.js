@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    console.log("Camaronn")
     var currentURL_string = window.location.href
     var currentURL = new URL(currentURL_string)
     var id = currentURL.searchParams.get('id')
@@ -23,13 +22,12 @@ $(document).ready(function() {
         method: 'GET',
         url: 'https://mbmfestival.herokuapp.com/performers/' + id + '/linkedEvents',
         success: function(data) {
-            console.log("event-performer")
             data.forEach(element => {
                 var template = 
                     `
                         <div class="col-sm">
                             <p>
-                                Same day event
+                                <b>Related Event</b>
                             </p>
                             <div class="row m-3">
                                 <div class="col-sm">
