@@ -1,7 +1,7 @@
 <html lang="en">
 
 <head>
-    <title>All events</title>
+    <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -15,14 +15,13 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style/style.css" type="text/css">
-    <script src="js/all_events.js"></script>
-    <script src="js/filter_events.js"></script>
+    <script src="../js/specific_performer.js"></script>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="index.html">
-            <img src="../images/mbm.png" style="width: 50px">
+            <img src="../images/mbm.png" alt='Logo of the festival' style="width: 50px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,44 +52,23 @@
 
         </div>
     </nav>
-    <div class='container-fluid'>
-        <div class="row" style='min-height: 100vh;'>
-            <div class="col-sm-2 d-flex flex-column">
-                <form id='genre-choice'>
-                    <fieldset>
-                        <legend class="text-center">Filter:</legend>
-                        <input type="radio" id="theatre" name="genre" value="Theatre" onclick='filter()'>
-                        <label for="theatre">Theatre</label>
-                        <br>
-                        <input type="radio" id="music" name="genre" value="Music" onclick='filter()'>
-                        <label for="music">Music</label>
-                        <br>
-                        <input type="radio" id="opera" name="genre" value="Opera" onclick='filter()'>
-                        <label for="opera">Opera</label>
-                        <br>
-                        <input type="radio" id="seminar" name="genre" value="Seminar" onclick='filter()'>
-                        <label for="Seminar">Seminar</label>
-                        <br>
-                        <input type="radio" id="all" name="genre" value="All" onclick='filter()'>
-                        <label for="all">All</label>
-                        <br>
-                        <input type="radio" id="today" name="genre" value="Today" onclick='filter()'>
-                        <label for="today">Today</label>
-                    </fieldset>
-                </form>
-                <form id='calendar'>
-                    <label>Select a day</label>
-                    <input id="selected_day" type="date" name="date" min="2020-02-01" max="2020-02-29"
-                        formaction="filter_by_date">
-                    <button id="filter_button_date" form="calendar" type="button" value="Filter!"
-                        onclick="filter_by_date()">Filter</button>
-                </form>
-            </div>
-            <div class="col-sm">
-                <div id="wrapper"></div>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+                <img src="" id="performer-single-image" class="img-fluid performermer-image my-3">
             </div>
         </div>
-        <div id="footer" class="row bg-dark py-3 mt-2">
+        <div class="row description-performer">
+            <div class="col-sm">
+                <p id='performer-single-description'>Description:<br>
+                </p>
+            </div>
+
+
+        </div>
+        <div class="row event-performer">
+        </div>
+        <div id="footer" class="row bg-dark py-3">
             <div class="col-sm-4 my-auto text-white">
                 <a href="index.html">
                     <img src="../images/mbm.png" style="width:50px">
@@ -112,6 +90,7 @@
             </div>
         </div>
     </div>
+
 </body>
 
 </html>
