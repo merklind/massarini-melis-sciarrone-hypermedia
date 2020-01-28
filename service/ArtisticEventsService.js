@@ -8,7 +8,9 @@ var respondWithCode= require('../utils/writer').respondWithCode;
  * returns List
  **/
 exports.getArtisticEvents = function() {
-  return db('artisticEvent').select();
+  return db('artisticEvent')
+  .orderBy('date','asc')
+  .select();
 }
 
 /**

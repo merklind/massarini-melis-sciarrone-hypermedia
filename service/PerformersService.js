@@ -8,7 +8,9 @@ var respondWithCode= require('../utils/writer').respondWithCode;
  * returns List
  **/
 exports.getPerformers = function() {
-  return db('performer').select();
+  return db('performer')
+  .orderBy('name','asc')
+  .select();
 }
 
 /**

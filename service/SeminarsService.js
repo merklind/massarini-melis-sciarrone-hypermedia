@@ -8,7 +8,9 @@ var respondWithCode= require('../utils/writer').respondWithCode;
  * returns List
  **/
 exports.getSeminars = function() {
-  return db('seminar').select();
+  return db('seminar')
+  .orderBy('date','asc')
+  .select();
 }
 
 /**
