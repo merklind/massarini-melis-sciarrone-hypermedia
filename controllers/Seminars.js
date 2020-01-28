@@ -26,7 +26,7 @@ module.exports.getSeminars = function getSeminars (req, res, next) {
 
 module.exports.getLinkedEventsBySeminar = function getLinkedEventsBySeminar (req, res, next) {
     var seminarId = req.swagger.params['seminarId'].value;
-  Performers.getLinkedEventsBySeminar(seminarId)
+  Seminars.getLinkedEventsBySeminar(seminarId)
     .then(function (response) {
       utils.writeJson(res, response);
     })

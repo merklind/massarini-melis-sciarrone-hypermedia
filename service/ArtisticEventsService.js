@@ -69,7 +69,13 @@ exports.getSameDayEvents = function(artisticEventId) {
  * returns List
  **/
 exports.getLinkedSeminarsByEvent = function(artisticEventId) {
-  
+  if(!artisticEventId)
+    return respondWithCode(400, {message: 'invalidId'})
+
+  return db('eventSeminar').where({'eventSeminar.eventId': artisticEventId})
+  .join('seminar', 'seminar.id', '=', 'eventSeminar.seminarId')
+  .select('seminar.*')
+
 }
 
 /**
@@ -78,6 +84,11 @@ exports.getLinkedSeminarsByEvent = function(artisticEventId) {
  * returns List
  **/
 exports.getLinkedPerformersByEvent = function(artisticEventId) {
+  if(!artisticEventId)
+    return respondWithCode(400, {message: 'invalidId'})
 
+  return db('eventPerformer').where({'eventPerformer.eventId': artisticEventId})
+  .join('performer', 'performer.id', '=', 'eventPerformer.performerId')
+  .select('performer.*')
 }
 

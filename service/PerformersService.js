@@ -39,5 +39,10 @@ exports.getPerformerById = function(performerId) {
  * returns List
  **/
 exports.getLinkedEventsByPerformer = function(performerId) {
-  
+  if(!performerId)
+    return respondWithCode(400, {message: 'invalidId'})
+
+  return db('eventPerformer').where({'eventPerformer.performerId': performerId})
+  .join('artisticEvent', 'artisticEvent.id', '=', 'eventPerformer.eventId')
+  .select('artisticEvent.*')
 }

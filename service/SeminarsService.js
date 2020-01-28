@@ -39,6 +39,11 @@ exports.getSeminarById = function(seminarId) {
  * returns List
  **/
 exports.getLinkedEventsBySeminar = function(seminarId) {
-  
+  if(!seminarId)
+    return respondWithCode(400, {message: 'invalidId'})
+
+  return db('eventSeminar').where({'eventSeminar.seminarId': seminarId})
+  .join('artisticEvent', 'artisticEvent.id', '=', 'eventSeminar.eventId')
+  .select('artisticEvent.*')
 }
 
