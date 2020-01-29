@@ -34,3 +34,24 @@ module.exports.getMyUser = function getMyUser (req, res, next) {
       utils.writeJson(res, response);
     });
 };
+
+module.exports.getEventsReservation = function getEventsReservation (req, res, next) {
+  Users.getEventsReservation(req)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};
+
+module.exports.registerEvent = function registerEvent (req, res, next) {
+  var eventId = req.swagger.params['eventId'].value;
+  Users.registerEvent(eventId, req)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};

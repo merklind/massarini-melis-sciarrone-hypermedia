@@ -73,3 +73,53 @@ exports.getMyUser = function(req) {
     return foundUsers[0];
   });
 }
+
+/**
+ * Get artistic events the user registered to
+ *
+ * returns the events
+ **/
+exports.getEventsReservation = function(req) {
+  if(!req.session || !req.session.username) {
+    return new Promise(function (resolve,reject) {
+      resolve(respondWithCode(401, {message: 'User not logged in.'}));
+    });
+  }
+
+  return db('userEvent').where({'userEvent.username': req.session.username})
+  .join('artisticEvent', 'artisticEvent.id', '=', 'userEvent.eventId')
+  .select('artisticEvent.*')
+}
+
+/**
+ * Find event by ID
+ * Returns a single event
+ *
+ * artisticEventId Long ID of the event to return
+ * returns ArtisticEvent
+ **/
+exports.registerEvent = function(artisticEventId, req) {
+
+  if(!req.session || !req.session.username) {
+    return new Promise(function (resolve,reject) {
+      resolve(respondWithCode(401, {message: 'User not logged in.'}));
+    });
+  }
+
+  if(!artisticEventId)
+    return new Promise(function (resolve,reject) {
+      resolve(respondWithCode(400, {message: 'invalidId'}));
+    });
+
+  return db('userEvent')
+  .where({'userEvent.eventId': artisticEventId ,'userEvent.username' : req.session.username})
+  .then(function(artisticEvents){
+    if(artisticEvents.length == 0){
+      return db('userEvent').insert({username: req.session.username, eventId:artisticEventId});
+    }
+  }).then(function(){
+    return {}
+  }).catch(function (err) {
+    return respondWithCode(404, {message: 'not found'});
+  })
+}

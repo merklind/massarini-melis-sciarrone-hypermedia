@@ -364,7 +364,47 @@ paths:
         400:
           description: "Username already in use or missing username or password"
       x-swagger-router-controller: "Users"
-
+  /user/eventsReservation:
+    get:
+      tags:
+      - "user"
+      summary: "Finds all the artistic events the user registered for"
+      operationId: "getEventsReservation"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ArtisticEvent"
+        "400":
+          description: "Error"
+      deprecated: false
+      x-swagger-router-controller: "Users"
+  /user/registerEvent/{eventId}:
+    post:
+      tags:
+      - "user"
+      summary: "Registers a user for an event"
+      description: ""
+      operationId: "registerEvent"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "eventId"
+        in: "path"
+        description: "Id of the event"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "successful operation"
+        404: 
+          description: "event doesn't exist"
+      x-swagger-router-controller: "Users"
 definitions:
   ArtisticEvent:
     type: "object"

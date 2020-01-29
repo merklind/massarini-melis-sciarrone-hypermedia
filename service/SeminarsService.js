@@ -26,7 +26,6 @@ exports.getSeminarById = function(seminarId) {
       resolve(respondWithCode(400, {message: 'Invalid id'}));
     });
   }
-    
 
   return db('seminar').where({'seminar.id': seminarId})
   .then(function(seminars){
@@ -50,8 +49,7 @@ exports.getLinkedEventsBySeminar = function(seminarId) {
       resolve(respondWithCode(400, {message: 'Invalid id'}));
     });
   }
-    
-
+  
   return db('eventSeminar').where({'eventSeminar.seminarId': seminarId})
   .join('artisticEvent', 'artisticEvent.id', '=', 'eventSeminar.eventId')
   .select('artisticEvent.*')
