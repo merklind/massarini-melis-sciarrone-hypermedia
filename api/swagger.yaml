@@ -4,7 +4,7 @@ info:
   description: "This is a festival page website."
   version: "1.0.0"
   title: "MBM Festival"
-host: "localhost:5000"
+host: "mbmfestival.herokuapp.com"
 basePath: "/"
 tags:
 - name: "artistic events"
@@ -15,6 +15,7 @@ tags:
   description: "Everything about performers"
 schemes:
 - "http"
+- "https"
 paths:
   /artisticEvents:
     get:
