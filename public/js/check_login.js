@@ -6,7 +6,6 @@ $(document).ready(function() {
         statusCode: {
             200: function(data) {
                 console.log("Autorizzato")
-                console.log(data)
                 $('#login-navbar').hide();
                 $('#signup-navbar').hide();
                 var template =
@@ -16,7 +15,6 @@ $(document).ready(function() {
                 </li>
                 `
                 $('#right-navbar').append(template);
-                console.log('Finito')
             },
             401: function(){
                 console.log("Non autorizzato")

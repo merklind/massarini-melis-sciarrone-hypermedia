@@ -107,3 +107,16 @@ $(document).ready(function() {
         }
     })
 })
+
+function event_reservation() {
+    var currentURL_string = window.location.href;
+    var currentURL = new URL(currentURL_string);
+    var idEvent = currentURL.searchParams.get('id');
+    $.ajax({
+        method: 'POST',
+        url: '/user/registerEvent/' + idEvent,
+        success: function() {
+            console.log('Registrato all\'evento');
+        }
+    })
+}

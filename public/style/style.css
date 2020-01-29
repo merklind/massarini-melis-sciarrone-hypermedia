@@ -238,6 +238,18 @@ form > input {
     }
 }
 
+#bookNowButton {
+    height: 40px;
+    background-color: #393d42;
+    border-color: #393d42;
+    color: #dcdcdc;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 50%;
+
+}
+
 
 
 

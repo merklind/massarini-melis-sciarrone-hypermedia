@@ -3,7 +3,6 @@ $(document).ready(function() {
     $.ajax({
         url: 'http://mbmfestival.herokuapp.com/artisticEvents',
         method: 'GET',
-        async: 'false',
         success: function(data) {
         data.forEach((event) => {
             var template = `
@@ -31,7 +30,6 @@ $(document).ready(function() {
     $.ajax({
         method: 'GET',
         url: 'https://mbmfestival.herokuapp.com/seminars',
-        async: 'false',
         success: function(data) {
             data.forEach((seminar) => {
                 var template = `

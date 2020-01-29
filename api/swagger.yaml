@@ -14,8 +14,8 @@ tags:
 - name: "performers"
   description: "Everything about performers"
 schemes:
-- "http"
-- "https"
+  - "https"
+  - "http"
 paths:
   /artisticEvents:
     get:
