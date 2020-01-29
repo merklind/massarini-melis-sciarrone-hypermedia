@@ -1,12 +1,11 @@
 <html lang="en">
 
 <head>
-    <title>Discover us</title>
+    <title>Sign up</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
@@ -16,6 +15,7 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style/style.css" type="text/css">
+    <script src='js/login.js'></script>
     <script src='js/check_login.js'></script>
 </head>
 
@@ -54,59 +54,46 @@
         </div>
     </nav>
     <div class="container-fluid">
-        <div class="row-sm">
-            <div class="col-sm">
-                <p class="description">
-                    <strong>WELCOME TO THE MBMFest!</strong>
-                    <br>
-                    <br>
-                    The festival takes place in Stockholm, extended in a 4000 mq area between the lakes.
-                    This is the first European festival set in a completely natural landscape, where some of the best
-                    musicians,
-                    DJs, speakers, bands and ensembles can help you to attend to one of the most delightful and unique
-                    experiences
-                    in the world.
-                    <br>
-                    There are also different stands inside the structure where you can buy food, souvenirs and even one
-                    of the
-                    biggest Luna Parks worldwide where you can spend your time in between the events, to make your
-                    experience
-                    really
-                    unforgettable.
-                    <br>
-                    Don’t miss your chance and <strong>buy tickets!</strong>
-                </p>
+        <div class='row justify-content-center' style='height: 80vh;'>
+            <div class="col-md-4 my-auto" >
+                <div id="formContent">
+                    <form id='signUpForm'>
+                        <div id='usernameForm'>
+                            <label for='username'><b>Username</b></label>
+                        </div>
+                        <input type="text" id="username" name="username">
+                        <div id='passwordForm'>
+                            <label for='password'><b>Password</b></label>
+                        </div>
+                        <input type="password" id="password" name="password">
+                        <button id='signup-button' type='submit'>Sign up</button>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm">
-                <img src="images/Tomorrowland.jpg" class="img-fluid rounded mx-auto mb-5 d-block"
-                    alt="Responsive image">
+        <div id='footer' class='row bg-dark py-3' >
+            <div class='col-sm-4 my-auto text-white'>
+                <div>
+                    <a href='index.html'>
+                        <img id='logo-image' src='/images/mbm.png' alt='logo of the festival'>
+                    </a>
+                </div>
             </div>
-        </div>
-        <div id="footer" class="row bg-dark py-3">
-            <div class="col-sm-4 my-auto text-white">
-                <a href="index.html">
-                    <img src="../images/mbm.png" style="width:50px">
-                </a>
-            </div>
-            <div class="col-sm-4 my-auto text-white">
+            <div id='copyright' class='col-sm-4 my-auto text-white'>
                 Copyright Marco Melis - Mattia Massarini - Bruno Sciarrone
             </div>
-            <div class="col-sm-2 offset-md-2 text-white">
-                <ul>
+            <div class='col-sm-2 offset-md-2 text-white'>
+                <ul id='link-list-footer'>
                     <li>
-                        <a href="index.html">Homepage</a>
+                        <a href='index.html'>Homepage</a>
                     </li>
                     <li>
-                        <a href="contact_us.html">Contact us</a>
+                        <a href='contact_us.html'>Contact us</a>
                     </li>
                 </ul>
-
             </div>
         </div>
     </div>
-
 </body>
 
 </html>

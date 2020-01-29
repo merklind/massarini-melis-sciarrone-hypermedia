@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="style/style.css" type="text/css">
     <script src="js/all_events.js"></script>
     <script src="js/filter_events.js"></script>
+    <script src='js/check_login.js'></script>
 </head>
 
 <body>
@@ -82,7 +83,7 @@
                     <label style="text-align: center; display: block; font-weight: bold;">Select a date</label>
                     <input id="selected_day" type="date" name="date" min="2020-02-01" max="2020-02-29"
                         formaction="filter_by_date">
-                    <button id="filter_button_date" form="calendar" type="button" value="Filter!"
+                    <button id="filter-button-date" form="calendar" type="button" value="Filter!"
                         onclick="filter_by_date()">Filter</button>
                 </form>
             </div>
@@ -90,25 +91,26 @@
                 <div id="wrapper"></div>
             </div>
         </div>
-        <div id="footer" class="row bg-dark py-3 mt-2">
-            <div class="col-sm-4 my-auto text-white">
-                <a href="index.html">
-                    <img src="../images/mbm.png" style="width:50px">
-                </a>
+        <div id='footer' class='row bg-dark py-3 my-2'>
+            <div class='col-sm-4 my-auto text-white'>
+                <div>
+                    <a href='index.html'>
+                        <img id='logo-image' src='/images/mbm.png' alt='logo of the festival'>
+                    </a>
+                </div>
             </div>
-            <div class="col-sm-4 my-auto text-white">
+            <div id='copyright' class='col-sm-4 my-auto text-white'>
                 Copyright Marco Melis - Mattia Massarini - Bruno Sciarrone
             </div>
-            <div class="col-sm-2 offset-md-2 text-white">
-                <ul>
+            <div class='col-sm-2 offset-md-2 text-white'>
+                <ul id='link-list-footer'>
                     <li>
-                        <a href="index.html">Homepage</a>
+                        <a href='index.html'>Homepage</a>
                     </li>
                     <li>
-                        <a href="contact_us.html">Contact us</a>
+                        <a href='contact_us.html'>Contact us</a>
                     </li>
                 </ul>
-
             </div>
         </div>
     </div>

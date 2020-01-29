@@ -23,7 +23,7 @@ exports.registerUser = function(userData, req) {
   }).then(function () {
     return db('user').where(userData).select('username');
   }).then(function (newUser) {
-    req.session.username = newUser.username;
+    req.session.username = newUser[0].username;
     return newUser[0];
   }).catch(function (err) {
     return respondWithCode(400, {message: err.message});
