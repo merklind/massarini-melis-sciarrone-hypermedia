@@ -15,7 +15,6 @@
         integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6'
         crossorigin='anonymous'></script>
     <link rel='stylesheet' href='style/style.css' type='text/css'>
-    <script src='js/check_login.js'></script>
 </head>
 
 <body>
@@ -27,7 +26,6 @@
             aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
             <span class='navbar-toggler-icon'></span>
         </button>
-
         <div id='navbarSupportedContent' class='collapse navbar-collapse'>
 
             <ul class='navbar-nav'>
@@ -41,11 +39,11 @@
                     <a class='nav-link' href='contact_us.html'>Contact us</a>
                 </li>
             </ul>
-            <ul class='navbar-nav ml-auto'>
-                <li class='nav-item'>
+            <ul id='right-navbar' class='navbar-nav ml-auto'>
+                <li id='login-navbar' class='nav-item'>
                     <a class='nav-link' href='login.html'>Login</a>
                 </li>
-                <li class='nav-item'>
+                <li id='signup-navbar' class='nav-item'>
                     <a class='nav-link' href='sign_up.html'>Sign up</a>
                 </li>
             </ul>
@@ -81,7 +79,7 @@
             </div>
         </div>
     </div>
-
+    <script src='js/check_login.js'></script>
 </body>
 
 </html>

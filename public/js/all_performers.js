@@ -4,7 +4,6 @@ $(document).ready(function() {
         url: 'http://mbmfestival.herokuapp.com/performers'
     })
     .then(function(data) {
-        console.log(data)
         data.reverse().forEach((performer) => {
             var template = `
                 <div class='row one_performer' id='${performer.id}'>
