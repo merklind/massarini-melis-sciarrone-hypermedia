@@ -4,7 +4,7 @@ $(document).ready(function() {
     var id = currentURL.searchParams.get('id')
     $.ajax({
         method:'GET',
-        url: 'https://mbmfestival.herokuapp.com/performers/' + id,
+        url: '/performers/' + id,
         success: function(data) {
             document.title = data.name;
             document.getElementById('performer-single-image').setAttribute('src', '../images/' + data.id + '.jpg');
@@ -20,7 +20,7 @@ $(document).ready(function() {
     var id = currentURL.searchParams.get('id')
     $.ajax({
         method: 'GET',
-        url: 'https://mbmfestival.herokuapp.com/performers/' + id + '/linkedEvents',
+        url: '/performers/' + id + '/linkedEvents',
         success: function(data) {
             data.forEach(element => {
                 var template = 
@@ -36,7 +36,7 @@ $(document).ready(function() {
                                         <div class="card-body">
                                             <h5 id='same-day-event-title' class="card-title">${element.name}</h5>
                                             <p id='same-day-event-description' class="card-text">${element.description.substring(0,50)}...</p>
-                                            <a id='same-day-event-link' href="one_event.html?id=${element.id}" class="btn btn-primary">Go to event</a>
+                                            <a id='related-event-button' href="one_event.html?id=${element.id}" class="btn btn-primary">Go to event</a>
                                         </div>
                                     </div>
                                 </div>

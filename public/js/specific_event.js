@@ -41,7 +41,7 @@ $(document).ready(function() {
                                 <div class="card-body">
                                     <h5 id='same-day-event-title' class="card-title">${element.name}</h5>
                                     <p id='same-day-event-description' class="card-text">${element.description.substring(0,50)}...</p>
-                                    <a id='same-day-event-link' href="one_event.html?id=${element.id}" class="btn btn-primary">Go to event</a>
+                                    <a id='related-event-button' href="one_event.html?id=${element.id}" class="btn btn-primary">Go to event</a>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +76,7 @@ $(document).ready(function() {
                                 <div class="card-body">
                                     <h5 class="card-title">${linkedSeminar.name}</h5>
                                     <p class="card-text">${linkedSeminar.description.substring(0, 50)}...</p>
-                                    <a href='http://mbmfestival.herokuapp.com/one_seminar.html?id=${linkedSeminar.id}' class="btn btn-primary">Go to the seminar</a>
+                                    <a id='linked-seminar-button' href='one_seminar.html?id=${linkedSeminar.id}' class="btn btn-primary">Go to the seminar</a>
                                 </div>
                             </div>
                         </div>
@@ -117,6 +117,9 @@ function event_reservation() {
         url: '/user/registerEvent/' + idEvent,
         success: function() {
             console.log('Registrato all\'evento');
+        },
+        error: function(event) {
+            $('[data-toggle="popover"]').popover();
         }
     })
 }

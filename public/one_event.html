@@ -59,19 +59,19 @@
         </div>
         <div class="row info_event">
             <div class="col-sm text-center">
-                <p id="event-single-date">Data: </p>
+                <p id="event-single-date"><b>Data:</b></p>
             </div>
-            <div class='col-sm'>
-                <button id='bookNowButton' class='btn btn-primary' onclick="event_reservation()">Book now</button>
+            <div class='col-sm text-center'>
+                <button id='bookNowButton' data-toggle='popover' data-placement='bottom' title='Errore' data-content='You have to be logged in' class='btn btn-primary' onclick="event_reservation()">Book now</button>
             </div>
             <div class="col-sm text-center">
-                <p id="event-single-genre">Style: </p>
+                <p id="event-single-genre"><b>Style:</b> </p>
             </div>
         </div>
         <div class="row performer">
             <div class="col-sm">
                 <p>
-                    Performer
+                    <b>Performer</b>
                     <br>
                     <ul id=performer-list>
                     </ul>
@@ -80,7 +80,7 @@
         </div>
         <div class="row description-event">
             <div class="col-sm">
-                <p id='event-single-description'>Description:<br>
+                <p id='event-single-description'><b>Description</b>:<br>
                 </p>
             </div>
 

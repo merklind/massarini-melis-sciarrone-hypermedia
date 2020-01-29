@@ -17,7 +17,8 @@ $(document).ready(function() {
                 $('#right-navbar').append(template);
             },
             401: function(){
-                console.log("Non autorizzato")
+                console.log("Non autorizzato");
+                $('#bookNowButton').hide();
             }
         }
     })
