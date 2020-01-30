@@ -24,7 +24,7 @@ html, body, .container-fluid{
     margin-bottom: 80px;
 }
 
-.info_event {
+.info-event {
     height: 70px;
     display: flex;
     align-items: center;
@@ -198,7 +198,7 @@ form > input {
     color: #dcdcdc;
 }
 
-#linked-seminar-box, #same-day-event {
+#linked-seminar-box, #same-day-event, #related-event-inner  {
     text-align: center;
     font-weight: bold;
     border: solid;
@@ -279,6 +279,11 @@ form > input {
 
 #event-single-genre {
     margin-top: 1rem;
+}
+
+.single-image {
+    display: block;
+    margin: auto;
 }
 
 

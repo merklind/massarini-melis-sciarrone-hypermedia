@@ -68,7 +68,7 @@
                         <label for="opera">Opera</label>
                         <br>
                         <input type="radio" id="seminar" name="genre" value="Seminar" onclick='filter()'>
-                        <label for="Seminar">Seminar</label>
+                        <label for="seminar">Seminar</label>
                         <br>
                         <input type="radio" id="all" name="genre" value="All" onclick='filter()'>
                         <label for="all">All</label>
@@ -78,7 +78,7 @@
                     </fieldset>
                 </form>
                 <form id='calendar'>
-                    <label style="text-align: center; display: block; font-weight: bold;">Select a date</label>
+                    <label for='selected_day' style="text-align: center; display: block; font-weight: bold;">Select a date</label>
                     <input id="selected_day" type="date" name="date" min="2020-02-01" max="2020-02-29"
                         formaction="filter_by_date">
                     <button id="filter-button-date" form="calendar" type="button" value="Filter!"
@@ -101,14 +101,9 @@
                 Copyright Marco Melis - Mattia Massarini - Bruno Sciarrone
             </div>
             <div class='col-sm-2 offset-md-2 text-white'>
-                <ul id='link-list-footer'>
-                    <li>
-                        <a href='index.html'>Homepage</a>
-                    </li>
-                    <li>
-                        <a href='contact_us.html'>Contact us</a>
-                    </li>
-                </ul>
+                <a href='all_events.html'>Events</a><br>
+                <a href='performers.html'>Performers</a><br>
+                <a href='contact_us.html'>Contact us</a>
             </div>
         </div>
     </div>

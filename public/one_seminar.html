@@ -1,6 +1,6 @@
 <html lang='en'>
     <head>
-        <title>My reservation</title>
+        <title></title>
         <meta charset='utf-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -14,10 +14,8 @@
             integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6'
             crossorigin='anonymous'></script>
         <link rel='stylesheet' href='style/style.css' type='text/css'>
-        <script src='js/my-reservation.js'></script>
-    
+        <script src='js/specific_seminar.js' type='text/javascript'></script>
     </head>
-
     <body>
         <nav class='navbar navbar-expand-sm navbar-dark bg-dark'>
             <a class='navbar-brand' href='index.html'>
@@ -52,7 +50,26 @@
             </div>
         </nav>
         <div class='container-fluid'>
-            <div id='wrapper' style='height: 100%;'></div>
+            <div class='row justify-content-center'>
+                <div class='col-sm-6'>
+                    <img id='seminar-image' src= '' class='img-fluid single-image my-3' alt= ''>
+                </div>
+            </div>
+            <div class='row info-event'>
+                <div class='col-sm text-center'>
+                    <p id='seminar-single-title'><b>Title: </b></p>
+                </div>
+                <div class='col-sm text-center'>
+                    <p id='seminar-single-date'><b>Date: </b></p>
+                </div>
+            </div>
+            <div class='row description-seminar'>
+                <div class='col-sm'>
+                    <p id='seminar-single-description'><b>Description:</b><br></p>
+                </div>
+            </div>
+            <div class='related-event' style='width: 50%;'>
+            </div>
             <div id='footer' class='row bg-dark py-3'>
                 <div class='col-sm-4 my-auto text-white'>
                     <div>
@@ -69,9 +86,7 @@
                     <a href='performers.html'>Performers</a><br>
                     <a href='contact_us.html'>Contact us</a>
                 </div>
-            </div>
-        </div>
-
+            </div>        </div>
         <script src='js/check_login.js'></script>
     </body>
 </html>
