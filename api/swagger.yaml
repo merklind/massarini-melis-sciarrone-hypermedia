@@ -406,6 +406,20 @@ paths:
         404: 
           description: "event doesn't exist"
       x-swagger-router-controller: "Users"
+  /user/logout:
+    get:
+      tags:
+      - "user"
+      summary: "Logs out current logged in user session"
+      operationId: "logoutUser"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+        401:
+          description: "you're not logged in"
+      x-swagger-router-controller: "Users"
 definitions:
   ArtisticEvent:
     type: "object"

@@ -55,3 +55,13 @@ module.exports.registerEvent = function registerEvent (req, res, next) {
       utils.writeJson(res, response);
     });
 };
+
+module.exports.logoutUser = function logoutUser (req, res, next) {
+  Users.logoutUser(req)
+    .then(function (response) {
+      utils.writeJson(res, response);
+    })
+    .catch(function (response) {
+      utils.writeJson(res, response);
+    });
+};

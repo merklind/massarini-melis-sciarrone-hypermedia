@@ -123,3 +123,21 @@ exports.registerEvent = function(artisticEventId, req) {
     return respondWithCode(404, {message: 'not found'});
   })
 }
+
+
+/**
+ * Logout the current user
+ *
+ **/
+exports.logoutUser = function(req) {
+  if(!req.session) {
+    return new Promise(function (resolve,reject) {
+      resolve(respondWithCode(401, {message: 'User not logged in.'}));
+    });
+  } else {
+      req.session = null
+      return new Promise(function (resolve,reject) {
+        resolve({});
+    });
+  }
+}
