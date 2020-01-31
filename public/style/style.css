@@ -203,8 +203,9 @@ form > input {
     font-weight: bold;
     border: solid;
     border-radius: 4px;
-    border-width: 1.5px;
+    border-width: 0;
     background-color: #D1F5FF;
+    color: white;
     
 }
 
@@ -284,6 +285,13 @@ form > input {
 .single-image {
     display: block;
     margin: auto;
+}
+
+#link-footer {
+    margin: auto;
+    text-align: center;
+    margin-top: 20;
+    margin-bottom: 20;
 }
 
 
