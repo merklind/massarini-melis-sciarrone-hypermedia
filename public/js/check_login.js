@@ -13,6 +13,9 @@ $(document).ready(function() {
                 <li id='myreservation-navbar' class='nav-item'>
                     <a class='nav-link' href='my_reservation.html'>My reservation</a>
                 </li>
+                <li id='logout-navbar' class='nav-item'>
+                    <a class='nav-link' href='#' onclick='logout();'>Logout</a>
+                </li>
                 `
                 $('#right-navbar').append(template);
             },
