@@ -1,14 +1,14 @@
 $(document).ready(function() {
     $.ajax({
         method: 'GET',
-        url: 'http://mbmfestival.herokuapp.com/performers'
+        url: '/performers'
     })
     .then(function(data) {
         data.reverse().forEach((performer) => {
             var template = `
                 <div class='row one_performer' id='${performer.id}'>
                     <div class='col-md-3 my-4'>
-                        <img src='images/${performer.id}.jpg' alt=${performer.name} class='image-performer img-fluid'>
+                        <img src='../assets/img/${performer.id}.jpg' alt=${performer.name} class='image-performer img-fluid'>
                     </div>
                     <div class='col-md-9 abstract-information'>
                         <b>Name</b>: <span class='name-performer'>${performer.name}</span>

@@ -1,10 +1,12 @@
 <html lang="en">
+
 <head>
-    <title></title>
+    <title>Discover us</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
@@ -13,14 +15,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style/style.css" type="text/css">
-    <script src="../js/specific_event.js"></script>
-    <script src='js/logout.js'></script>
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+    <script src='../assets/js/logout.js'></script>
 </head>
+
 <body>
     <nav class='navbar navbar-expand-sm navbar-dark bg-dark'>
-        <a class='navbar-brand' href='index.html'>
-            <img id='logo-image' src='/images/mbm.png' alt='logo of the festival'>
+        <a class='navbar-brand' href='../index.html'>
+            <img id='logo-image' src='../assets/img/mbm.png' alt='logo of the festival'>
         </a>
         <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent'
             aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
@@ -51,47 +53,41 @@
         </div>
     </nav>
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="col-sm-6">
-                <img src="" id="event-single-image" class="img-fluid single-image my-3">
-            </div>
-        </div>
-        <div class="row info-event">
-            <div class="col-sm text-center">
-                <p id="event-single-date"><b>Data:</b></p>
-            </div>
-            <div class='col-sm text-center'>
-                <button id='bookNowButton' data-toggle='popover' data-placement='bottom' title='Errore' data-content='You have to be logged in' class='btn btn-primary' onclick="event_reservation()">Book now</button>
-            </div>
-            <div class="col-sm text-center">
-                <p id="event-single-genre"><b>Style:</b> </p>
-            </div>
-        </div>
-        <div class="row performer">
+        <div class="row-sm">
             <div class="col-sm">
-                <p>
-                    <b>Performer</b>
+                <p class="description">
+                    <strong>WELCOME TO THE MBMFest!</strong>
                     <br>
-                    <ul id=performer-list>
-                    </ul>
+                    <br>
+                    The festival takes place in Stockholm, extended in a 4000 mq area between the lakes.
+                    This is the first European festival set in a completely natural landscape, where some of the best
+                    musicians,
+                    DJs, speakers, bands and ensembles can help you to attend to one of the most delightful and unique
+                    experiences
+                    in the world.
+                    <br>
+                    There are also different stands inside the structure where you can buy food, souvenirs and even one
+                    of the
+                    biggest Luna Parks worldwide where you can spend your time in between the events, to make your
+                    experience
+                    really
+                    unforgettable.
+                    <br>
+                    Don’t miss your chance and <strong>buy tickets!</strong>
                 </p>
             </div>
         </div>
-        <div class="row description-event">
+        <div class="row">
             <div class="col-sm">
-                <p id='event-single-description'><b>Description</b>:<br>
-                </p>
+                <img src="../assets/img/Tomorrowland.jpg" class="img-fluid rounded mx-auto mb-5 d-block"
+                    alt="Responsive image">
             </div>
-        </div>
-        <div class="row linked-seminar" style="width: 50%;">
-        </div>
-        <div class="row same-day-event-list">
         </div>
         <div id='footer' class='row bg-dark py-3'>
             <div class='col-sm-4 my-auto text-white'>
                 <div>
-                    <a href='index.html'>
-                        <img id='logo-image' src='/images/mbm.png' alt='logo of the festival'>
+                    <a href='../index.html'>
+                        <img id='logo-image' src='../assets/img/mbm.png' alt='logo of the festival'>
                     </a>
                 </div>
             </div>
@@ -107,4 +103,5 @@
     </div>
     <script src='js/check_login.js'></script>
 </body>
+
 </html>

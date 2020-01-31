@@ -31,7 +31,7 @@ html, body, .container-fluid{
 }
 
 .image-background {
-    background-image: url("../images/home_page_pic.jpg");
+    background-image: url('../img/home_page_pic.jpg');
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -204,7 +204,7 @@ form > input {
     border: solid;
     border-radius: 4px;
     border-width: 0;
-    background-color: #D1F5FF;
+    background-color: darkred;
     color: white;
     
 }

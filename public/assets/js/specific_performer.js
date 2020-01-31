@@ -7,7 +7,7 @@ $(document).ready(function() {
         url: '/performers/' + id,
         success: function(data) {
             document.title = data.name;
-            document.getElementById('performer-single-image').setAttribute('src', '../images/' + data.id + '.jpg');
+            document.getElementById('performer-single-image').setAttribute('src', '../assets/img/' + data.id + '.jpg');
             document.getElementById('performer-single-image').setAttribute('alt', data.name);
             document.getElementById('performer-single-description').innerHTML += ' ' + data.bio;
         }
@@ -32,7 +32,7 @@ $(document).ready(function() {
                             <div class="row m-3">
                                 <div class="col-sm">
                                     <div class="card text-center" style="width: 18rem;">
-                                        <img id='same-day-event-image' class="card-img-top" src='images/${element.id}.jpg' alt="${element.name}" style="height: 189.4">
+                                        <img id='same-day-event-image' class="card-img-top" src='../assets/img/${element.id}.jpg' alt="${element.name}" style="height: 189.4">
                                         <div class="card-body">
                                             <h5 id='same-day-event-title' class="card-title">${element.name}</h5>
                                             <p id='same-day-event-description' class="card-text">${element.description.substring(0,50)}...</p>

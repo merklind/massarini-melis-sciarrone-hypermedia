@@ -15,7 +15,7 @@ $(document).ready(function() {
           var template = `
                 <div class='row one_event' id='${event.id}'>
                     <div class='col-md-3 my-4'>
-                        <img src='images/${event.id}.jpg' alt='${
+                        <img src='../assets/img/${event.id}.jpg' alt='${
             event.name
           }' class='image-event img-fluid'>
                     </div>

@@ -1,7 +1,6 @@
 <html lang="en">
-
 <head>
-    <title>All performers</title>
+    <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -14,15 +13,14 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style/style.css" type="text/css">
-    <script src="js/all_performers.js"></script>
-    <script src='js/logout.js'></script>
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+    <script src="../assets/js/specific_event.js"></script>
+    <script src='../assets/js/logout.js'></script>
 </head>
-
 <body>
     <nav class='navbar navbar-expand-sm navbar-dark bg-dark'>
-        <a class='navbar-brand' href='index.html'>
-            <img id='logo-image' src='/images/mbm.png' alt='logo of the festival'>
+        <a class='navbar-brand' href='../index.html'>
+            <img id='logo-image' src='../assets/img/mbm.png' alt='logo of the festival'>
         </a>
         <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarSupportedContent'
             aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
@@ -52,12 +50,48 @@
 
         </div>
     </nav>
-    <div id='wrapper' class='container-fluid'>
-        <div id='footer' class='row bg-dark py-3 mt-2'>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+                <img src="" id="event-single-image" class="img-fluid single-image my-3">
+            </div>
+        </div>
+        <div class="row info-event">
+            <div class="col-sm text-center">
+                <p id="event-single-date"><b>Data:</b></p>
+            </div>
+            <div class='col-sm text-center'>
+                <button id='bookNowButton' data-toggle='popover' data-placement='bottom' title='Errore' data-content='You have to be logged in' class='btn btn-primary' onclick="event_reservation()">Book now</button>
+            </div>
+            <div class="col-sm text-center">
+                <p id="event-single-genre"><b>Style:</b> </p>
+            </div>
+        </div>
+        <div class="row performer">
+            <div class="col-sm">
+                <p>
+                    <b>Performer</b>
+                    <br>
+                    <ul id=performer-list>
+                    </ul>
+                </p>
+            </div>
+        </div>
+        <div class="row description-event">
+            <div class="col-sm">
+                <p id='event-single-description'><b>Description</b>:<br>
+                </p>
+            </div>
+        </div>
+        <div class="row linked-seminar" style="width: 50%;">
+        </div>
+        <div class="row same-day-event-list">
+        </div>
+        <div id='footer' class='row bg-dark py-3'>
             <div class='col-sm-4 my-auto text-white'>
                 <div>
-                    <a href='index.html'>
-                        <img id='logo-image' src='/images/mbm.png' alt='logo of the festival'>
+                    <a href='../index.html'>
+                        <img id='logo-image' src='../assets/img/mbm.png' alt='logo of the festival'>
                     </a>
                 </div>
             </div>
@@ -71,7 +105,6 @@
             </div>
         </div>
     </div>
-    <script src='js/check_login.js'></script>
+    <script src='../assets/js/check_login.js'></script>
 </body>
-
 </html>
