@@ -320,7 +320,7 @@ paths:
       tags:
       - "user"
       summary: "Logs user into the system"
-      description: ""
+      description: "to test the login function: username: guest, password: password"
       operationId: "loginUser"
       produces:
       - "application/json"
@@ -495,8 +495,8 @@ definitions:
         type: "string"
         format: "string"
     example:
-      username: "Chico"
-      password: "consuelo123"
+      username: "guest"
+      password: "password"
 
   User:
     type: "object"

@@ -495,8 +495,8 @@ definitions:
         type: "string"
         format: "string"
     example:
-      username: "Chico"
-      password: "consuelo123"
+      username: "guest"
+      password: "password"
 
   User:
     type: "object"
