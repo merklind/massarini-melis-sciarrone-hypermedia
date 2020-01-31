@@ -1,0 +1,69 @@
+<p style="padding-left: 60px;"><strong>DOCUMENTATION OF THE BACKEND PART</strong></p>
+<p style="padding-left: 60px;"><strong>Deliverable D1</strong></p>
+<p style="padding-left: 60px;"><strong>GENERALE GROUP INFORMATION</strong></p>
+<table style="padding-left: 60px; height: 86px;" width="806">
+<tbody style="padding-left: 60px;">
+<tr style="padding-left: 60px; height: 23px;">
+<td style="padding-left: 60px; width: 51.4px; height: 23px;">&nbsp;MEMBER</td>
+<td style="padding-left: 60px; width: 68.2px; height: 23px;">&nbsp;ROLE</td>
+<td style="padding-left: 60px; width: 35.4px; height: 23px;">&nbsp;FIRST NAME</td>
+<td style="padding-left: 60px; width: 50.6px; height: 23px;">&nbsp;LAST NAME</td>
+<td style="padding-left: 60px; width: 66.6px; height: 23px;">&nbsp;MATRICOLA</td>
+<td style="padding-left: 60px; width: 161px; height: 23px;">&nbsp;EMAIL ADDRESS</td>
+</tr>
+<tr style="padding-left: 60px; height: 11px;">
+<td style="padding-left: 60px; width: 51.4px; height: 11px;">&nbsp;1</td>
+<td style="padding-left: 60px; width: 68.2px; height: 11px;">Administrator&nbsp;</td>
+<td style="padding-left: 60px; width: 35.4px; height: 11px;">&nbsp;Marco</td>
+<td style="padding-left: 60px; width: 50.6px; height: 11px;">&nbsp;Melis</td>
+<td style="padding-left: 60px; width: 66.6px; height: 11px;">&nbsp;829686&nbsp;</td>
+<td style="padding-left: 60px; width: 161px; height: 11px;">&nbsp;marco.melis@mail.polimi.it</td>
+</tr>
+<tr style="padding-left: 60px; height: 11px;">
+<td style="padding-left: 60px; width: 51.4px; height: 11px;">&nbsp;2</td>
+<td style="padding-left: 60px; width: 68.2px; height: 11px;">&nbsp;Member</td>
+<td style="padding-left: 60px; width: 35.4px; height: 11px;">&nbsp;Bruno</td>
+<td style="padding-left: 60px; width: 50.6px; height: 11px;">&nbsp;Sciarrone</td>
+<td style="padding-left: 60px; width: 66.6px; height: 11px;">&nbsp;891589</td>
+<td style="padding-left: 60px; width: 161px; height: 11px;">&nbsp;bruno.sciarrone@mail.polimi.it</td>
+</tr>
+<tr style="padding-left: 60px; height: 11px;">
+<td style="padding-left: 60px; width: 51.4px; height: 11px;">&nbsp;3</td>
+<td style="padding-left: 60px; width: 68.2px; height: 11px;">&nbsp;Member</td>
+<td style="padding-left: 60px; width: 35.4px; height: 11px;">Mattia&nbsp;</td>
+<td style="padding-left: 60px; width: 50.6px; height: 11px;">&nbsp;Massarini</td>
+<td style="padding-left: 60px; width: 66.6px; height: 11px;">&nbsp;825664</td>
+<td style="padding-left: 60px; width: 161px; height: 11px;">&nbsp;mattia1.massarini@mail.polimi.it</td>
+</tr>
+</tbody>
+</table>
+<p style="padding-left: 60px;"><strong>LINKS TO OTHER DELIVERABLES</strong></p>
+<p style="padding-left: 60px;">- Deliverable D0: the web application is accessible at <a href="https://mbmfestival.herokuapp.com" >https://mbmfestival.herokuapp.com</a>.<br />
+    - Deliverable D2: the YAML or JSON file containing the specification of the app API can be found at <a href="https://mbmfestival.herokuapp.com/backend/spec.yaml" >https://mbmfestival.herokuapp.com/backend/spec.yaml</a>.<br />
+    - Deliverable D3: the SwaggerUI page of the same API is available at <a href="https://mbmfestival.herokuapp.com/backend/docs">https://mbmfestival.herokuapp.com/backend/swaggerui</a>.<br />
+    - Deliverable D4: the source code of D0 is available as a zip file at <a href="https://mbmfestival.herokuapp.com/backend/app.zip">https://mbmfestival.herokuapp.com/backend/app.zip</a>.<br />
+    - Deliverable D5: the address of the online source control repository is available <a href="https://github.com/merklind/massarini-melis-sciarrone-hypermedia">https://github.com/merklind/massarini-melis-sciarrone-hypermedia</a>. <br /> We hereby declare that this is a private repository and, upon request, we will give access to the instructors.</p>
+<p style="padding-left: 60px;"><strong>SPECIFICATION</strong></p>
+<p style="padding-left: 60px;"><strong>Web Architecture</strong></p>
+<p style="padding-left: 60px;"><img src="WebArchitecture.png" alt="WebArchitecture" /></p>
+<p style="padding-left: 60px;"><br />Presentation layer is composed by dynamic and static pages. The former is able, through AJAX calls and the REST API, to access database in order to retrieve data.<br />Knex module has been used to connect the database.</p>
+<p style="padding-left: 60px;"><strong>API</strong><br /><strong>REST compliance</strong></p>
+<p style="padding-left: 60px;">REST API has been written taking into account that every resource must have an unique identifier and must be located under an intuitive path. <br /> For example, the artistic events' list can be found under the path: /artisticEvents, to get a specific event: /artisticEvents/4 and if the id doesn't exist in the database the response will contain an HTTP code error describing what's wrong (400 for bad request, 404 for not found and 401 unauthorized). We used GET and POST http method to get/send data to the database.</p>
+<p style="padding-left: 60px;"><br /><strong>OpenAPI Resource models</strong></p>
+<p style="padding-left: 60px;">Performer: contains the identifier, name and a biography<br />Artistic Event: contains the identifier, name, date, description<br />Seminar: contains the identifier, name, date, description&nbsp;<br />User: contains username and password<br /><br /><strong>Data model</strong></p>
+<p style="padding-left: 60px;"><br /><img src="ERDiagram.png" alt="ERDiagram" /></p>
+<p style="padding-left: 60px;">The main entities are 'performer', 'artisticEvent', 'seminar' and 'user' and additional support tables used to make queries. Database main entities' attributes mirrors the API data models.</p>
+<p style="padding-left: 60px;"><br /><strong>IMPLEMENTATION</strong><br /><strong>Tools used</strong></p>
+<p style="padding-left: 60px;">We used Swagger.io tools to write the REST API and to generate the NodeJS server, JavaScript to write the code, npm to manage various packages like Knex that has been used to connect to the postgresSQL database.<br />We also used pgadmin4 in order to populate the database and to visualize tables and rows more easily.</p>
+<p style="padding-left: 60px;"><strong>Discussion</strong><br />- <em>How did you make sure your web application adheres to the provided OpenAPI specification? Which method did you use to test all APIs endpoints against the expected response?</em></p>
+<p style="padding-left: 60px;">We made sure to adheres to the provided OpenAPI specification by writing the API and by generating the server using Swagger.io tools.<br />In order to test the endpoints we used the Swagger UI page to send request and verifing the responses.</p>
+<p style="padding-left: 60px;"><br />- <em>Why do you think your web application adheres to common practices to partition a REST-based web application (static assets vs. application data)</em></p>
+<p style="padding-left: 60px;">All the static assets (static html pages and images) are located inside the public folder while all the dynamic pages are served through&nbsp;HTTP request and filled using AJAX calls.</p>
+<p style="padding-left: 60px;"><br />-<em> Describe synthetically why and how did you manage session state, what are the state change triggering actions (e.g., POST to login etc..).</em></p>
+<p style="padding-left: 60px;">Session state is managed by using a client-side cookie, generated after a sign up or a login, and erased after a logout.<br />We used a POST request to '/user/register' that creates a cookie client side if the provided informations are valid (the user doesn't exist already).<br />We used a POST request to '/user/login' that creates a cookie client side if the provided informations are in the database.<br />We used a GET request to '/user/logout' that simply erase the cookie and redirect to the main page.</p>
+<p style="padding-left: 60px;"><br />- <em>Which technology did you use (relational or a no-SQL database) for managing the data model?</em></p>
+<p style="padding-left: 60px;">We used PostgreSQL relational database.</p>
+<p style="padding-left: 60px;"><br /><strong>OTHER INFORMATION</strong><br /><strong>Task assignment</strong></p>
+<p style="padding-left: 60px;">Marco worked on front end (90%) and API specification (10%)<br />Mattia worked on backend (60%), database (20%) and API specification (20%)<br />Bruno worked on application design (60%) and frontend (40%)</p>
+<p style="padding-left: 60px;"><strong>Analysis of existing API</strong></p>
+<p style="padding-left: 60px;">We had a glimpse of what an OpenAPI specification looks like from the Pet Store API provided by Swagger.io , then since our application is about a music festival and not a store we took partial inspiration from API <a href="https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/">https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/</a> for the part of the API that manages the artistic events because both applications serve similar purpose, for example showing a list of events or a specific event.<br />In particular we took inspiration on how to organize endpoints to get resources by specifing an unique ID.<br />After that we extended the same concept throughout performers and seminars endpoints as well.<br /><br /><strong>Learning outcome</strong><br /><br />Marco Melis learnt HTML, CSS, Javascript and REST API.<br />Mattia Massarini learnt NodeJs, Javascript, database organization/ queries and REST API<br />Bruno Sciarrone learnt HTML, CSS and Javascript</p>
