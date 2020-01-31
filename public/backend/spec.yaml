@@ -1,0 +1,507 @@
+---
+swagger: "2.0"
+info:
+  description: "This is a festival page website."
+  version: "1.0.0"
+  title: "MBM Festival"
+host: "mbmfestival.herokuapp.com"
+basePath: "/"
+tags:
+- name: "artistic events"
+  description: "Everything about artistic events"
+- name: "seminars"
+  description: "Everything about seminars"
+- name: "performers"
+  description: "Everything about performers"
+schemes:
+  - "https"
+  - "http"
+paths:
+  /artisticEvents:
+    get:
+      tags:
+      - "artistic events"
+      summary: "Finds all the artistic events"
+      operationId: "getArtisticEvents"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ArtisticEvent"
+        "400":
+          description: "Error"
+      deprecated: false
+      x-swagger-router-controller: "ArtisticEvents"
+  /artisticEvents/{artisticEventId}:
+    get:
+      tags:
+      - "artistic events"
+      summary: "Find event by ID"
+      description: "Returns a single event"
+      operationId: "getEventById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "artisticEventId"
+        in: "path"
+        description: "ID of the event to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/ArtisticEvent"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "ArtisticEvents"
+  /artisticEvents/{artisticEventId}/sameDayEvents:
+    get:
+      tags:
+      - "artistic events"
+      summary: "Find events on the same day"
+      description: "Returns zero or multiple events"
+      operationId: "getSameDayEvents"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "artisticEventId"
+        in: "path"
+        description: "ID of the event"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ArtisticEvent"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "ArtisticEvents"
+  /artisticEvents/{artisticEventId}/linkedPerformers:
+    get:
+      tags:
+      - "artistic events"
+      summary: "Find performers who partecipates in said event"
+      description: "Returns one or multiple performers"
+      operationId: "getLinkedPerformersByEvent"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "artisticEventId"
+        in: "path"
+        description: "ID of the event"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Performer"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "ArtisticEvents"
+  /artisticEvents/{artisticEventId}/linkedSeminars:
+    get:
+      tags:
+      - "artistic events"
+      summary: "Find linked seminars by artistic eventID"
+      description: "Returns zero or multiple correlated seminars given an artistic event"
+      operationId: "getLinkedSeminarsByEvent"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "artisticEventId"
+        in: "path"
+        description: "ID of the event"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Seminar"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "ArtisticEvents"
+
+  /performers:
+    get:
+      tags:
+      - "performers"
+      summary: "Finds all performers"
+      operationId: "getPerformers"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Performer"
+        "400":
+          description: "Error"
+      deprecated: false
+      x-swagger-router-controller: "Performers"
+  /performers/{performerId}:
+    get:
+      tags:
+      - "performers"
+      summary: "Find performer by ID"
+      description: "Returns a single performer"
+      operationId: "getPerformerById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "performerId"
+        in: "path"
+        description: "ID of performer to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Performer"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Performer not found"
+      x-swagger-router-controller: "Performers"
+  /performers/{performerId}/linkedEvents:
+    get:
+      tags:
+      - "performers"
+      summary: "Find linked events by performer ID"
+      description: "Returns zero or multiple correlated events given a performer id"
+      operationId: "getLinkedEventsByPerformer"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "performerId"
+        in: "path"
+        description: "ID of the event"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Seminar"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "Performers"
+
+  /seminars:
+    get:
+      tags:
+      - "seminars"
+      summary: "Finds all the seminars"
+      operationId: "getSeminars"
+      produces:
+      - "application/json"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Seminar"
+        "400":
+          description: "Error"
+      deprecated: false
+      x-swagger-router-controller: "Seminars"
+  /seminars/{seminarId}:
+    get:
+      tags:
+      - "seminars"
+      summary: "Find seminar by ID"
+      description: "Returns a single seminar"
+      operationId: "getSeminarById"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "seminarId"
+        in: "path"
+        description: "ID of seminar to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Seminar"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Seminar not found"
+      x-swagger-router-controller: "Seminars"
+  /seminars/{seminarId}/linkedEvents:
+    get:
+      tags:
+      - "seminars"
+      summary: "Find linked events by seminar ID"
+      description: "Returns zero or multiple correlated events given a seminar id"
+      operationId: "getLinkedEventsBySeminar"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "seminarId"
+        in: "path"
+        description: "ID of the seminar"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ArtisticEvent"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Event not found"
+      x-swagger-router-controller: "Seminars"
+
+  /user/me:
+    get:
+      tags:
+      - "user"
+      summary: "Information about current user"
+      description: "Return information about the user"
+      operationId: "getMyUser"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/User"
+        "401":
+          description: "Not authorized"
+      x-swagger-router-controller: "Users"
+  /user/login:
+    post:
+      tags:
+      - "user"
+      summary: "Logs user into the system"
+      description: ""
+      operationId: "loginUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "body"
+        in: "body"
+        description: "User information"
+        required: true
+        schema: 
+          $ref: "#/definitions/UserInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/User"
+        400:
+          description: "Username and/or password missing"
+        401:
+          description: "Invalid username/password supplied"
+      x-swagger-router-controller: "Users"
+  /user/register:
+    post:
+      tags:
+      - "user"
+      summary: "Registers user into the system"
+      description: ""
+      operationId: "registerUser"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "body"
+        in: "body"
+        description: "User information"
+        required: true
+        schema: 
+          $ref: "#/definitions/UserInfo"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/User"
+        400:
+          description: "Username already in use or missing username or password"
+      x-swagger-router-controller: "Users"
+  /user/eventsReservation:
+    get:
+      tags:
+      - "user"
+      summary: "Finds all the artistic events the user registered for"
+      operationId: "getEventsReservation"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ArtisticEvent"
+        "400":
+          description: "Error"
+      deprecated: false
+      x-swagger-router-controller: "Users"
+  /user/registerEvent/{eventId}:
+    post:
+      tags:
+      - "user"
+      summary: "Registers a user for an event"
+      description: ""
+      operationId: "registerEvent"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "eventId"
+        in: "path"
+        description: "Id of the event"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "successful operation"
+        404: 
+          description: "event doesn't exist"
+      x-swagger-router-controller: "Users"
+  /user/logout:
+    get:
+      tags:
+      - "user"
+      summary: "Logs out current logged in user session"
+      operationId: "logoutUser"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+        401:
+          description: "you're not logged in"
+      x-swagger-router-controller: "Users"
+definitions:
+  ArtisticEvent:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        format: "string"
+      description:
+        type: "string"
+        format: "string"
+      date:
+        type: "string"
+        format: "date"
+      genre:
+        type: "string"
+        format: "string"
+    example:
+      id: 0
+      name: "name"
+      description: "description"
+      date: "2000-01-23"
+      genre: "void"
+  Seminar:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        format: "string"
+      description:
+        type: "string"
+        format: "string"
+      date:
+        type: "string"
+        format: "date"
+      genre:
+        type: "string"
+        format: "string"
+    example:
+      id: 0
+      name: "name"
+      description: "description"
+      date: "2000-01-23"
+      genre: "void"
+  Performer:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+        format: "string"
+      bio:
+        type: "string"
+        format: "string"
+    example:
+      id: 0
+      name: "name"
+      bio: "bio"
+  UserInfo:
+    type: "object"
+    properties:
+      username:
+        type: "string"
+        format: "string"
+      password:
+        type: "string"
+        format: "string"
+    example:
+      username: "Chico"
+      password: "consuelo123"
+
+  User:
+    type: "object"
+    properties:
+      username:
+        type: "string"
+        format: "string"
+
