@@ -82,7 +82,14 @@ exports.getLinkedSeminarsByEvent = function(artisticEventId) {
 
   return db('eventSeminar').where({'eventSeminar.eventId': artisticEventId})
   .join('seminar', 'seminar.id', '=', 'eventSeminar.seminarId')
-  .select('seminar.*')
+  .select('seminar.*').then(function(linkedSeminars){
+    if(linkedSeminars.length > 0){
+      return linkedSeminars;
+    }
+    else {
+      return respondWithCode(404,{message: 'linked seminars not found'})
+    }
+  })
 
 }
 
@@ -99,6 +106,13 @@ exports.getLinkedPerformersByEvent = function(artisticEventId) {
 
   return db('eventPerformer').where({'eventPerformer.eventId': artisticEventId})
   .join('performer', 'performer.id', '=', 'eventPerformer.performerId')
-  .select('performer.*')
+  .select('performer.*').then(function(linkedPerformers){
+    if(linkedPerformers.length > 0){
+      return linkedPerformers;
+    }
+    else {
+      return respondWithCode(404,{message: 'linked performers not found'})
+    }
+  })
 }
 

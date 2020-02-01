@@ -50,5 +50,12 @@ exports.getLinkedEventsByPerformer = function(performerId) {
 
   return db('eventPerformer').where({'eventPerformer.performerId': performerId})
   .join('artisticEvent', 'artisticEvent.id', '=', 'eventPerformer.eventId')
-  .select('artisticEvent.*')
+  .select('artisticEvent.*').then(function(linkedEvents){
+    if(linkedEvents.length > 0){
+      return linkedEvents;
+    }
+    else {
+      return respondWithCode(404,{message: 'linked events not found'})
+    }
+  })
 }
