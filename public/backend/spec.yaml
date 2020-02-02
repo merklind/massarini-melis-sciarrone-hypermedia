@@ -463,6 +463,9 @@ definitions:
       genre:
         type: "string"
         format: "string"
+      location:
+        type: "string"
+        format: "string"
     example:
       id: 0
       name: "name"
