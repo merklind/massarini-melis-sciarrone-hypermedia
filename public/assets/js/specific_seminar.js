@@ -10,6 +10,7 @@ $(document).ready(function() {
             document.getElementById('seminar-image').setAttribute('src', '../assets/img/' + id + '.jpg');
             document.getElementById('seminar-image').setAttribute('alt', data.name);
             document.getElementById('seminar-single-title').innerHTML += data.name;
+            document.getElementById('seminar-single-location').innerHTML += data.location;
             document.getElementById('seminar-single-date').innerHTML += data.date.substring(0, 10);
             document.getElementById('seminar-single-description').innerHTML += data.description;
             $.ajax({

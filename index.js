@@ -46,12 +46,14 @@ swaggerTools.initializeMiddleware(swaggerDoc, function (middleware) {
   app.use(middleware.swaggerRouter(options));
 
   // Serve the Swagger documents and Swagger UI
-  app.use(middleware.swaggerUi());
+  app.use(middleware.swaggerUi({
+    swaggerUi: '/backend/swaggerui'
+  }));
 
   // Start the server
   http.createServer(app).listen(PORT, function () {
     console.log(`Our app is running on http://localhost:${ PORT }`);
-    console.log(`Swagger-ui is available on http://localhost:${ PORT }/docs`);
+    console.log(`Swagger-ui is available on http://localhost:${ PORT }/backend/swaggerui`);
   });
 
 });
