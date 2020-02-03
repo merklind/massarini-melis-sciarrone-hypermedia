@@ -8,11 +8,11 @@ host: "mbmfestival.herokuapp.com"
 basePath: "/"
 tags:
 - name: "artistic events"
-  description: "Everything about artistic events"
+  description: "Everything about artistic events (artistic events IDs from 1 to 11"
 - name: "seminars"
-  description: "Everything about seminars"
+  description: "Everything about seminars (seminars IDs from 20 to 24)"
 - name: "performers"
-  description: "Everything about performers"
+  description: "Everything about performers (performers IDs from 30 to 40)"
 schemes:
   - "https"
   - "http"
@@ -42,7 +42,7 @@ paths:
       tags:
       - "artistic events"
       summary: "Find event by ID"
-      description: "Returns a single event"
+      description: "Returns a single event by specifing an id (from 1 to "
       operationId: "getEventById"
       produces:
       - "application/json"
